@@ -44,9 +44,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # configure your application to serve static assets
 # so that you do not need to do this manually in a config file.
-group :production do
-  gem 'rails_12factor'
-end
+gem 'rails_12factor', group: :production
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
