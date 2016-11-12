@@ -1,0 +1,77 @@
+<div class="row">
+
+  <div class="col-md-4">
+
+    <%= image_tag @plant.plant_img.url(:plant_show), class: "plant-show" %>
+
+  </div>
+
+  <div class="col-md-8">
+
+    <div class="plant-info">
+
+      <h2 class="plant-name"><%= @plant.name %></h2>
+      <h4 class="plant-owner">From <%= @plant.owner %></h4>
+      <span>Category: <%= @plant.category.name %></span>
+      <h4 class="avg-rating">Average Rating</h4>
+      <div class="average-review-rating" data-score=<%= @average_review %>></div>
+      <span class="number-of-reviews">Based on <%= @plant.reviews.count %> review(s)</span>
+      <p class="plant-desc"><%= @plant.description %></p>
+
+    </div>
+
+    <div class="reviews">
+
+      <h3>Reviews</h3>
+
+      <%= render @plant.reviews %>
+
+      <div>
+        <%= link_to "Add Review", new_plant_review_path(@plant), class: "btn-custom" %>
+      </div>
+
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="links btn-group">
+
+      <%= link_to "Back", root_path, class: "btn btn-custom" %>
+
+      <% if user_signed_in? %>
+
+        <% if @plant.user_id == current_user.id %>
+
+          <%= link_to "Edit", edit_plant_path(@plant), class: "btn btn-custom" %>
+          <%= link_to "Delete", plant_path(@plant), method: :delete, data: { confirm: "Are you sure?"}, class: "btn btn-custom" %>
+
+        <% end %>
+
+      <% end %>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<script>
+  $('.review-rating').raty({
+    readOnly: true,
+    score: function(){
+      return $(this).attr('data-score');
+    },
+    path: '/assets/'
+  });
+</script>
+
+<script>
+  $('.average-review-rating').raty({
+    readOnly: true,
+    path: '/assets/',
+    score: function(){
+      return $(this).attr('data-score')
+    }
+  });
+</script>

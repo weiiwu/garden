@@ -7,6 +7,14 @@ gem 'rails', '4.2.6'
 gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+# Use simple form
+gem 'simple_form', '~> 3.3', '>= 3.3.1'
+# Use bootstrap sass
+gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
+# Use devise
+gem 'devise', '~> 4.2'
+# Use paperclip
+gem 'paperclip', '~> 5.1'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -44,4 +52,3 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-

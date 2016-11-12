@@ -1,0 +1,23 @@
+<h3 class="current-category"><%= params[:category] %></h3>
+
+<% if @plants.count == 0 %>
+
+  <h3>There are no plants currently in this category</h3>
+
+<% else %>
+
+  <div class="row">
+
+    <% @plants.each do |plant| %>
+
+      <div class="col-md-3">
+        <a href="/plants/<%= plant.id %>">
+          <%= image_tag plant.plant_img.url(:plant_index), class: "plant" %>
+        </a>
+      </div>
+
+    <% end %>
+
+  </div>
+
+<% end %>

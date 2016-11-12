@@ -1,0 +1,31 @@
+<div class="col-md-6 col-md-offset-3">
+
+	<div class="edit-review-form">
+
+		<h3>Edit Review</h3>
+
+		<%= simple_form_for([@plant, @review]) do |f| %>
+			<div id="rating-form" data-score="<%= @review.rating %>">
+				<label>Rating</label>
+			</div>
+			<%= f.input :comment %>
+			<%= f.button :submit, :class => "btn-custom2" %>
+			<%= link_to "Back", root_path, class: "btn btn-custom2" %>
+
+		<% end %>
+
+
+
+	</div>
+
+</div>
+
+<script>
+	$('#rating-form').raty({
+		score: function(){
+			return $(this).attr('data-score');
+		},
+		path: '/assets/',
+		scoreName: 'review[rating]'
+	});
+</script>

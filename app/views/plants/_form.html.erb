@@ -1,0 +1,9 @@
+<%= simple_form_for @plant, :html => { :multipart => true } do |f| %>
+  <%= select_tag(:category_id, options_for_select(@categories), :prompt => "Select a category") %>
+  <%= f.file_field :plant_img %>
+  <%= f.input :name, label: "Plant Name" %>
+  <%= f.input :description %>
+  <%= f.input :owner %>
+  <%= f.button :submit, :class => 'btn-custom2' %>
+  <%= link_to "Back", root_path, class: "btn btn-custom" %>
+<% end %>
